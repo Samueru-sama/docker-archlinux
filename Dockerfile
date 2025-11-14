@@ -46,8 +46,8 @@ RUN <<EOS
   set +e
   pacman-key --init 2>/dev/null || true
   pacman-key --populate 2>/dev/null || true
-  bash -c "rm -rf etc/pacman.d/gnupg/{openpgp-revocs.d/,private-keys-v1.d/,pubring.gpg~,gnupg.S.}*" 2>/dev/null || true
-  sed 's/DownloadUser/#DownloadUser/g' -i "/etc/pacman.conf" 2>/dev/null || true
+  bash -c "rm -rf /etc/pacman.d/gnupg/{openpgp-revocs.d/,private-keys-v1.d/,pubring.gpg~,gnupg.S.}*" 2>/dev/null || true
+  sed -i -e 's/DownloadUser/#DownloadUser/g' "/etc/pacman.conf" 2>/dev/null || true
 EOS
 #------------------------------------------------------------------------------------#
 
