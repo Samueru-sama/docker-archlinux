@@ -42,7 +42,7 @@ jobs:
           DOCKER_TAG="v$(date +'%Y.%m.%d')" && export DOCKER_TAG="$DOCKER_TAG"
           echo "DOCKER_TAG=$DOCKER_TAG" >> "${GITHUB_ENV}"
           #GHCR Tags
-          echo "GHCR_NAME=ghcr.io/${{ github.repository_owner }}/archlinux" >> "${GITHUB_ENV}"
+          echo "GHCR_NAME=ghcr.io/${{ github.repository_owner }}/archlinux" | tr 'A-Z' 'a-z' >> "${GITHUB_ENV}"
           #Repo
           mkdir -p "/tmp/ARCHLINUX" && pushd "/tmp/ARCHLINUX" >/dev/null 2>&1
           git clone --filter="blob:none" --depth="1" "https://github.com/pkgforge-dev/docker-archlinux"
