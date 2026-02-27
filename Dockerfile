@@ -29,6 +29,8 @@ RUN <<EOS
   rm /rootfs/var/lib/pacman/sync/* 2>/dev/null || true
   sed 's/DownloadUser/#DownloadUser/g' -i "/etc/pacman.conf" 2>/dev/null || true
 EOS
+
+CMD ["/usr/bin/bash"]
 #------------------------------------------------------------------------------------#
 
 #------------------------------------------------------------------------------------#
